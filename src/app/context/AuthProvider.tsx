@@ -28,22 +28,25 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const fetchUser = async () => {
       try {
         setIsLoading(true);
-        const { data: { session }, error } = await supabase.auth.getSession();
+        // Use getUser() instead of getSession() for better security
+        const { data: { user }, error } = await supabase.auth.getUser();
         
         if (error) {
-          console.error('Error fetching session:', error);
+          console.error('Error fetching user:', error);
+          setUser(null);
           return;
         }
         
-        if (session) {
-          console.log('Session found:', session.user.email);
-          setUser(session.user);
+        if (user) {
+          console.log('User found:', user.email);
+          setUser(user);
         } else {
-          console.log('No active session found');
+          console.log('No active user found');
           setUser(null);
         }
       } catch (error) {
         console.error('Error fetching user:', error);
+        setUser(null);
       } finally {
         setIsLoading(false);
       }
@@ -52,10 +55,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     fetchUser();
 
     // Set up auth state listener
-    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
-      const user = session?.user || null;
-      console.log('Auth state changed:', user?.email || 'No user');
-      setUser(user);
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      // Don't use the user from the event directly
+      // Instead, verify the session by calling getUser() again
+      if (session) {
+        const { data: { user: verifiedUser }, error } = await supabase.auth.getUser();
+        if (!error && verifiedUser) {
+          console.log('Auth state changed - verified user:', verifiedUser.email);
+          setUser(verifiedUser);
+        } else {
+          console.log('Auth state changed but user verification failed');
+          setUser(null);
+        }
+      } else {
+        console.log('Auth state changed: No session');
+        setUser(null);
+      }
     });
 
     return () => {
