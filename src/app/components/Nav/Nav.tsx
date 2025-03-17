@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import config from '../../../config.json';
+import config from '../../../../config.json';
 
 // Use navigation items from config.json
 const MENU_LIST = config.navigation;

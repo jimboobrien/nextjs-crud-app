@@ -1,10 +1,43 @@
 {
   "navigation": [
-    { "text": "Home", "name": "Home", "href": "/", "path": "/", "slug": "home", "icon": "faHome" },
+    { "text": "Dashboard", "name": "Dashboard", "href": "/", "path": "/", "slug": "dashboard", "icon": "faHome" },
     { "text": "Register", "name": "Register", "href": "/register", "path": "/register", "slug": "register", "icon": "faHome" },  
     { "text": "Login", "name": "Login", "href": "/login", "path": "/login", "slug": "login", "icon": "faHome" },
-    { "text": "User", "name": "User", "href": "/user", "path": "/user", "slug": "user", "icon": "faHome" },
-    { "text": "Add", "name": "Add", "href": "/add", "path": "/add", "slug": "add", "icon": "faHome" },
     { "text": "Admin", "name": "Admin", "href": "/admin", "path": "/admin", "slug": "admin", "icon": "faHome" }
-  ]
+  ],
+  "app": {
+    "name": "Next.js CRUD App",
+    "description": "A full-featured CRUD application built with Next.js",
+    "version": "1.0.0"
+  },
+  "theme": {
+    "primaryColor": "#0070f3",
+    "secondaryColor": "#1E293B",
+    "backgroundColor": "#f5f5f5",
+    "textColor": "#333333",
+    "darkMode": false
+  },
+  "api": {
+    "baseUrl": "/api",
+    "endpoints": {
+      "todos": "/todos",
+      "users": "/users",
+      "auth": "/auth"
+    }
+  },
+  "dashboard": {
+    "widgets": [
+      { "id": "todo-stats", "name": "Todo Statistics", "enabled": true, "position": 1 },
+      { "id": "recent-todos", "name": "Recent Todos", "enabled": true, "position": 2 },
+      { "id": "user-activity", "name": "User Activity", "enabled": true, "position": 3 }
+    ],
+    "refreshInterval": 60000
+  },
+  "features": {
+    "userRegistration": true,
+    "emailNotifications": false,
+    "darkModeToggle": true,
+    "exportData": true,
+    "adminPanel": true
+  }
 }

@@ -1,12 +1,12 @@
 'use client';
 // src/components/Navbar.js
 import React, { useEffect, useState } from 'react';
-import { useActivePage } from '../context/ActivePageContext';
+import { useActivePage } from '../../context/ActivePageContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faComment, faImage, faMapLocationDot } from '@fortawesome/pro-solid-svg-icons';
 
-import config from '../../../config.json';
+import config from '../../../../config.json';
 
 const MENU_LIST = config.navigation;
 
