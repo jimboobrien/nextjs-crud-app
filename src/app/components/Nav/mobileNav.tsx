@@ -4,18 +4,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import { useActivePage } from '../context/ActivePageContext';
+import { useActivePage } from '../../context/ActivePageContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faComment, faImage, faMapLocationDot } from '@fortawesome/pro-solid-svg-icons';
+import config from '../../../../config.json';
 
-
-const navItems = [
-    { "name": "Home", "path": "/", "icon": faHome },
-    { "name": "Text Prompt", "path": "/textPrompt", "icon": faComment },
-    { "name": "Image Prompt", "path": "/imagePrompt", "icon": faImage },
-    { "name": "DND Map", "path": "/dndPrompt", "icon": faMapLocationDot }
-  ];
-
+const MENU_LIST = config.navigation;
 
 function MobileNav() {
     const { activePage, setActive } = useActivePage() as { activePage: string, setActive: (page: string) => void };
@@ -27,7 +21,7 @@ function MobileNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {navItems.map((item, i) => (
+            {MENU_LIST.map((item, i) => (
               <Nav.Link
                 key={i}
                 href={item.path}

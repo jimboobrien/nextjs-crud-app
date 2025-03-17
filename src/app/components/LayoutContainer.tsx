@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Sidebar from './sidebar';
-import MobileNav from './mobileNav';
+import Sidebar from './Nav/sidebar';
+import MobileNav from './Nav/mobileNav';
 
 interface LayoutContainerProps {
   children: React.ReactNode;
