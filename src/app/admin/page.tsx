@@ -20,7 +20,7 @@ export default function AdminDashboard() {
   }, [user]);
   if (!user || user.role !== 'admin') return (
     <div>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
       <p>Access Denied</p>
     </div>
   );

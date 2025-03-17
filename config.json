@@ -1,0 +1,10 @@
+{
+  "navigation": [
+    { "text": "Home", "name": "Home", "href": "/", "path": "/", "slug": "home", "icon": "faHome" },
+    { "text": "Register", "name": "Register", "href": "/register", "path": "/register", "slug": "register", "icon": "faHome" },  
+    { "text": "Login", "name": "Login", "href": "/login", "path": "/login", "slug": "login", "icon": "faHome" },
+    { "text": "User", "name": "User", "href": "/user", "path": "/user", "slug": "user", "icon": "faHome" },
+    { "text": "Add", "name": "Add", "href": "/add", "path": "/add", "slug": "add", "icon": "faHome" },
+    { "text": "Admin", "name": "Admin", "href": "/admin", "path": "/admin", "slug": "admin", "icon": "faHome" }
+  ]
+}
