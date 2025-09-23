@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/utils/supabase';
+import { createClient } from "@/utils/supabase/client";
+
+const supabase = createClient();
 import { useAuth } from '../context/AuthProvider';
 
 export default function AdminDashboard() {

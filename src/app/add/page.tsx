@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { supabase } from '@/utils/supabase';
+import { createClient } from "@/utils/supabase/client";
+
+const supabase = createClient();
 import { useAuth } from '../context/AuthProvider';
 import { Container, Row, Col, Form, Button, Card, Alert } from 'react-bootstrap';
 //import { useRouter } from 'next/router';
